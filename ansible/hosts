@@ -1,0 +1,2 @@
+[webservers]
+52.51.197.27 ansible_user=ubuntu ansible_private_key_file=/home/bennie/.ssh/npontukeys.pem

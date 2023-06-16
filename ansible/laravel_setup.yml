@@ -1,0 +1,21 @@
+---
+- name: Setup Laravel Application
+  hosts: webservers
+  remote_user: root
+  become: yes
+  vars_files:
+    - vars/vars.yml
+
+  tasks:
+  - name: deploy laravel
+    import_tasks: tasks/deploy_laravel.yml
+
+  - name: encrypt ssl
+    import_tasks: tasks/encrypt_ssl.yml
+    ignore_errors: yes
+
+  handlers:
+  - name: reload apache
+    service:
+      name: apache2
+      state: reloaded
