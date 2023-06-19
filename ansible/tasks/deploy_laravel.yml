@@ -41,8 +41,6 @@
 
   - name: install and setup composer
     shell: curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
-    args:
-      warn: false
 
   - name: clone laravel repo
     git:
@@ -71,7 +69,7 @@
 
   - name: configure the .env file
     template:
-      src: "files/.env.j2"
+      src: "files/.env.example.j2"
       dest: "{{ http_path }}/.env"
 
   - name: configure .htaccess file

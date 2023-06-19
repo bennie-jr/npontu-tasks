@@ -1,9 +1,10 @@
-<VirtualHost *:80>
-    ServerAdmin admin@192.168.49.1
-    ServerName 192.168.49.1
-    DocumentRoot /var/www/html/laravel/public/
+<VirtualHost *:{{ http_port }}>
+    ServerAdmin admin@34.245.164.179
+    ServerName 34.245.164.179
 
-    <Directory /var/www/html/laravel/>
+    DocumentRoot {{ http_path }}/public/
+
+    <Directory {{ http_path }}/public/>
             Options Indexes FollowSymLinks
             AllowOverride All
             Require all granted
